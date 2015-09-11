@@ -4423,3 +4423,58 @@ http://192.168.1.101/stl_static/2df3802a66ae326c222299f995051388.stl
 [pid: 3323|app: 0|req: 11/208] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:15:24 2015] GET /designer/designer_works => generated 11411 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
 [pid: 3321|app: 0|req: 192/209] 192.168.1.108 () {54 vars in 1024 bytes} [Fri Sep 11 17:15:24 2015] POST /designer/workd_unexecute => generated 266 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
 [pid: 3321|app: 0|req: 193/210] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:15:24 2015] POST /designer/auditing => generated 6213 bytes in 5 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3322|app: 0|req: 5/211] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:22:41 2015] GET /designer/designer_works => generated 10461 bytes in 16 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3323|app: 0|req: 12/212] 192.168.1.108 () {56 vars in 1055 bytes} [Fri Sep 11 17:22:42 2015] POST /designer/workd_unexecute => generated 1175 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+http://192.168.1.101/stl_static/14340e4ce12a23a6e0d1330e2eaa9f01.stl
+[pid: 3321|app: 0|req: 194/213] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:22:55 2015] POST /designer/show_3d => generated 84 bytes in 5 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 3323|app: 0|req: 13/214] 192.168.1.108 () {54 vars in 1022 bytes} [Fri Sep 11 17:23:01 2015] POST /designer/screenshot => generated 21 bytes in 81 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+/usr/local/lib/python2.7/dist-packages/Django-1.8.2-py2.7.egg/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Goods_Upload.restdate received a naive datetime (2015-09-16 17:23:02.003287) while time zone support is active.
+  RuntimeWarning)
+
+[pid: 3311|app: 0|req: 3/215] 192.168.1.108 () {56 vars in 1162 bytes} [Fri Sep 11 17:23:01 2015] POST /designer/edit_submit => generated 0 bytes in 187 msecs (HTTP/1.1 302) 4 headers in 161 bytes (1 switches on core 0)
+[pid: 3311|app: 0|req: 4/216] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:23:02 2015] GET /designer/designer_works => generated 10461 bytes in 17 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3323|app: 0|req: 14/217] 192.168.1.108 () {54 vars in 1024 bytes} [Fri Sep 11 17:23:02 2015] POST /designer/workd_unexecute => generated 266 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 195/218] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:23:02 2015] POST /designer/auditing => generated 6410 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3322|app: 0|req: 6/219] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:23:27 2015] GET /designer/designer_works => generated 10461 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 196/220] 192.168.1.108 () {56 vars in 1055 bytes} [Fri Sep 11 17:23:28 2015] POST /designer/workd_unexecute => generated 1306 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+http://192.168.1.101/stl_static/2df3802a66ae326c222299f995051388.stl
+[pid: 3321|app: 0|req: 197/221] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:23:44 2015] POST /designer/show_3d => generated 84 bytes in 5 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 198/222] 192.168.1.108 () {54 vars in 1020 bytes} [Fri Sep 11 17:23:52 2015] POST /designer/screenshot => generated 21 bytes in 76 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+/usr/local/lib/python2.7/dist-packages/Django-1.8.2-py2.7.egg/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Goods_Upload.restdate received a naive datetime (2015-09-16 17:23:52.608361) while time zone support is active.
+  RuntimeWarning)
+
+[pid: 3323|app: 0|req: 15/223] 192.168.1.108 () {56 vars in 1164 bytes} [Fri Sep 11 17:23:52 2015] POST /designer/edit_submit => generated 0 bytes in 149 msecs (HTTP/1.1 302) 4 headers in 161 bytes (1 switches on core 0)
+[pid: 3323|app: 0|req: 16/224] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:23:52 2015] GET /designer/designer_works => generated 10461 bytes in 14 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3311|app: 0|req: 5/225] 192.168.1.108 () {54 vars in 1024 bytes} [Fri Sep 11 17:23:52 2015] POST /designer/workd_unexecute => generated 266 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 199/226] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:23:53 2015] POST /designer/auditing => generated 6333 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 200/227] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:23:55 2015] GET /designer/designer_works => generated 10461 bytes in 14 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 201/228] 192.168.1.108 () {56 vars in 1055 bytes} [Fri Sep 11 17:23:55 2015] POST /designer/workd_unexecute => generated 266 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 202/229] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:23:57 2015] POST /designer/auditing => generated 6333 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 203/230] 192.168.1.108 () {48 vars in 913 bytes} [Fri Sep 11 17:24:11 2015] GET /designer/works_upload => generated 6567 bytes in 11 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3323|app: 0|req: 17/231] 192.168.1.108 () {56 vars in 1162 bytes} [Fri Sep 11 17:24:30 2015] POST /designer/works_save => generated 0 bytes in 140 msecs (HTTP/1.1 302) 4 headers in 161 bytes (1 switches on core 0)
+[pid: 3323|app: 0|req: 18/232] 192.168.1.108 () {50 vars in 946 bytes} [Fri Sep 11 17:24:30 2015] GET /designer/designer_works => generated 10461 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3323|app: 0|req: 19/233] 192.168.1.108 () {54 vars in 1024 bytes} [Fri Sep 11 17:24:30 2015] POST /designer/workd_unexecute => generated 1486 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+3 /static/45abd5c9fbb209819a7cfb6eeff11eb6.stl
+http://192.168.1.101/stl_static/45abd5c9fbb209819a7cfb6eeff11eb6.stl
+[pid: 3321|app: 0|req: 204/234] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:24:40 2015] POST /designer/show_3d => generated 84 bytes in 11 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 205/235] 192.168.1.108 () {54 vars in 1022 bytes} [Fri Sep 11 17:24:48 2015] POST /designer/screenshot => generated 21 bytes in 58 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+/usr/local/lib/python2.7/dist-packages/Django-1.8.2-py2.7.egg/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Goods_Upload.restdate received a naive datetime (2015-09-16 17:24:48.191540) while time zone support is active.
+  RuntimeWarning)
+
+[pid: 3323|app: 0|req: 20/236] 192.168.1.108 () {56 vars in 1164 bytes} [Fri Sep 11 17:24:48 2015] POST /designer/edit_submit => generated 0 bytes in 106 msecs (HTTP/1.1 302) 4 headers in 161 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 206/237] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:24:48 2015] GET /designer/designer_works => generated 10461 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 207/238] 192.168.1.108 () {54 vars in 1024 bytes} [Fri Sep 11 17:24:48 2015] POST /designer/workd_unexecute => generated 881 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 208/239] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:24:48 2015] POST /designer/auditing => generated 7129 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 209/240] 192.168.1.108 () {54 vars in 1024 bytes} [Fri Sep 11 17:25:07 2015] POST /designer/workd_unexecute => generated 881 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 210/241] 192.168.1.108 () {54 vars in 1016 bytes} [Fri Sep 11 17:25:14 2015] POST /designer/screenshot => generated 10969 bytes in 23 msecs (HTTP/1.1 500) 2 headers in 93 bytes (1 switches on core 0)
+[pid: 3322|app: 0|req: 7/242] 192.168.1.108 () {54 vars in 1016 bytes} [Fri Sep 11 17:25:14 2015] POST /designer/screenshot => generated 10969 bytes in 25 msecs (HTTP/1.1 500) 2 headers in 93 bytes (1 switches on core 0)
+/usr/local/lib/python2.7/dist-packages/Django-1.8.2-py2.7.egg/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Goods_Upload.restdate received a naive datetime (2015-09-16 17:25:14.881657) while time zone support is active.
+  RuntimeWarning)
+
+[pid: 3323|app: 0|req: 21/243] 192.168.1.108 () {56 vars in 1164 bytes} [Fri Sep 11 17:25:14 2015] POST /designer/edit_submit => generated 0 bytes in 57 msecs (HTTP/1.1 302) 4 headers in 161 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 211/244] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:25:14 2015] GET /designer/designer_works => generated 10461 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3311|app: 0|req: 6/245] 192.168.1.108 () {54 vars in 1024 bytes} [Fri Sep 11 17:25:15 2015] POST /designer/workd_unexecute => generated 266 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 212/246] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:25:15 2015] POST /designer/auditing => generated 7129 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 213/247] 192.168.1.108 () {54 vars in 1010 bytes} [Fri Sep 11 17:25:18 2015] POST /designer/auditing => generated 794 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3323|app: 0|req: 22/248] 192.168.1.108 () {50 vars in 948 bytes} [Fri Sep 11 17:25:51 2015] GET /designer/designer_works => generated 10461 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3321|app: 0|req: 214/249] 192.168.1.108 () {56 vars in 1055 bytes} [Fri Sep 11 17:25:51 2015] POST /designer/workd_unexecute => generated 266 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
