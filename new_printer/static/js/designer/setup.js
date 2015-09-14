@@ -36,7 +36,8 @@
 	pay_empty.eq(0).on('blur',function (){
 		var _this = $(this),
 			_val = _this.val(),
-			reg = /[\u4e00-\u9fa5]{2,4}/;/^[a-zA-Z]{1}[0-9a-zA-Z_]{1,}$/
+			reg = /[\u4e00-\u9fa5]{2,4}/;
+		
 		ali_val[0] = _val;
 
 		if(_val && reg.test(_val)){
@@ -92,15 +93,13 @@
 				test_ico.eq(i).addClass('test-false');
 			}
 		}
-		//alert('1');
-		//console.log(ali_test[0],ali_test[1],ali_test[2])
+
 		if(ali_test[0] && ali_test[1] && ali_test[2]){
 			
 			$.post('/designer/add_alipay',{'ali_name': ali_val[0], 'ali_num': ali_val[1] },function (e){
 				result = JSON.parse(e);
 				if(result['status'] == 'success'){
 					window.location.reload();
-				}else{
 				}
 					
 			});
