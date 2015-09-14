@@ -41,18 +41,15 @@ def my_personal(request):
     now_user = ''
     vender_id = 0
     designer_id = request.GET['designer_id']
+    designer = Designer_User.objects.get(id = designer_id)
+    designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
+    designer.img = str(server_website.file_server_path) + str(designer.img)
     if Vender_User.objects.filter(user_id = user.id).exists():
         now_user = 'V'
         vender_id = Vender_User.objects.get(user_id = user.id).id
-        designer = Designer_User.objects.get(id = designer_id)
-        designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
-        designer.img = str(server_website.file_server_path) + str(designer.img)
         if Vender_Designer.objects.filter(designer_id = designer.id, vender_id = vender_id):
             is_focus = True
-    else:
-        designer = Designer_User.objects.get(id = designer_id)
-        designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
-        designer.img = str(server_website.file_server_path) + str(designer.img)
+        
     design_list = Goods.objects.filter(designer_id = designer.id, is_active = 1)
     return_list = []
     for good in design_list:
@@ -73,12 +70,12 @@ def my_personal(request):
         total_pages += 1
     if now_user == 'V':
         conf = {'other_goods_list': return_list, 'designer_img': designer.img, 'designer_name': designer.designername,
-            'marked': designer_marked, 'now_user': "V", 'designer_id': designer.id,
+            'marked': designer_marked, 'now_user': "V", 'designer_id': designer.id, 'total_pages':total_pages,
             'is_focus': is_focus, 'vender_id': vender_id
     		  }
     else:
         conf = {'other_goods_list': return_list, 'designer_img': designer.img, 'designer_name': designer.designername,
-            'marked': designer_marked, 'now_user': 'V', 'designer_id': designer.id,
+            'marked': designer_marked, 'now_user': 'V', 'designer_id': designer.id, 'total_pages':total_pages,
             'is_focus': is_focus
               }
     return render(request, website.my_personal, conf)
@@ -127,7 +124,12 @@ def sort_list(request):
          'collect_count': good.collected_count, 'goods_price': good.goods_price, 'is_collect': is_collect,
          'preview_1': server_website.file_server_path + good.preview_1, 'now_user': 'V'}
         return_list.append(_good)
-    conf = {'all_list': return_list
+
+    all_len = len(return_list)
+    total_pages = all_len/(website.all_one)
+    if all_len%(website.all_one)!=0:
+        total_pages += 1
+    conf = {'all_list': return_list, 'total_pages': total_pages
             }
     return HttpResponse(json.dumps(conf))
 
@@ -366,7 +368,6 @@ def show_3d(request):
     conf = { 'url_path': url_path}
     return HttpResponse(json.dumps(conf))
 
-@login_required
 def add_focus(request):
     d_id = request.POST['d_id']
     v_id = request.POST['v_id']
@@ -383,7 +384,6 @@ def add_focus(request):
 
     return HttpResponse(json.dumps(conf))
 
-@login_required
 def cancel_focus(request):
     d_id = request.POST['d_id']
     v_id = request.POST['v_id']
@@ -399,7 +399,6 @@ def cancel_focus(request):
         conf = {'state':'failed',}
     return HttpResponse(json.dumps(conf))
 
-@login_required
 def add_collect(request):
     user = request.user
     g_id = request.POST['g_id']
@@ -414,7 +413,6 @@ def add_collect(request):
     return HttpResponse(json.dumps("success"))
 
 
-@login_required
 def cancel_collect(request):
     g_id = request.POST['g_id']
     v_id = request.POST['v_id']
