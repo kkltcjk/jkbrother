@@ -7,7 +7,6 @@
 	{% compress css %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/designer/designer.css' %}" />
 	{% endcompress %}
-	
 	{% compress js %}
 	<script type="text/javascript" src="{% static 'js/designer/designer-show.js' %}"></script>
 	{% endcompress %}
@@ -94,13 +93,13 @@
 									{% endif %}
 								</div>
 							</li>
-
+							
 							{% endfor %} 
-
+							
 						</ul>
-						
-						{% include 'paging.html' %}
-
+						{% if page_length > 1 %}
+							{% include 'paging.html' %}
+						{% endif %}
 					</div>
 				</div>
 				
