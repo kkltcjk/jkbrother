@@ -11,7 +11,7 @@ from django.shortcuts import render
 from designer.conf import website
 from configuration import website as server_website
 from designer.utilites import search_handle,good_filter
-import json, os, uuid, platform, requests
+import json, os, platform, requests
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render,render_to_response
 from django.template import RequestContext
@@ -30,7 +30,6 @@ import httplib, urllib
 import urllib2,os
 from datetime import date ,datetime,timedelta
 import time,pdb
-
 
 
 def my_personal(request):
