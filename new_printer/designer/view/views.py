@@ -37,28 +37,20 @@ def my_personal(request):
     '''
 	#设计师个人中心页面，设计师本人看到的，即设计师个人主页。
     '''
-    #pdb.set_trace()
     user = request.user
     is_focus = False
     now_user = ''
     vender_id = 0
-    d_user = Designer_User.objects.filter(user_id = user.id).exists()
-    if (d_user):
-        now_user = 'D'
-        designer = Designer_User.objects.get(user_id = user.id)
-        designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
-        designer.img = str(server_website.file_server_path) + str(designer.img)
-    elif Vender_User.objects.filter(user_id = user.id).exists():
+    designer_id = request.GET['designer_id']
+    if Vender_User.objects.filter(user_id = user.id).exists():
         now_user = 'V'
         vender_id = Vender_User.objects.get(user_id = user.id).id
-        designer_id = request.GET['designer_id']
         designer = Designer_User.objects.get(id = designer_id)
         designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
         designer.img = str(server_website.file_server_path) + str(designer.img)
         if Vender_Designer.objects.filter(designer_id = designer.id, vender_id = vender_id):
             is_focus = True
     else:
-        designer_id = request.GET['designer_id']
         designer = Designer_User.objects.get(id = designer_id)
         designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
         designer.img = str(server_website.file_server_path) + str(designer.img)
@@ -80,15 +72,15 @@ def my_personal(request):
     total_pages = all_len/(website.all_one)
     if all_len%(website.all_one)!=0:
         total_pages += 1
-    if (d_user):
+    if now_user == 'V':
         conf = {'other_goods_list': return_list, 'designer_img': designer.img, 'designer_name': designer.designername,
-            'marked': designer_marked, 'now_user': now_user, 'designer_id': designer.id,
-            'is_focus': is_focus
+            'marked': designer_marked, 'now_user': "V", 'designer_id': designer.id,
+            'is_focus': is_focus, 'vender_id': vender_id
     		  }
     else:
         conf = {'other_goods_list': return_list, 'designer_img': designer.img, 'designer_name': designer.designername,
-            'marked': designer_marked, 'now_user': now_user, 'designer_id': designer.id,
-            'is_focus': is_focus, 'vender_id': vender_id
+            'marked': designer_marked, 'now_user': 'V', 'designer_id': designer.id,
+            'is_focus': is_focus
               }
     return render(request, website.my_personal, conf)
 
@@ -100,13 +92,13 @@ def sort_list(request):
     #pdb.set_trace()
     user = request.user
     now_user = ''
+ 
     Test_user = Designer_User.objects.filter(user_id = user.id).exists()
-    if Test_user:
-        designer_id = Designer_User.objects.get(user_id = user.id).id
-    #elif Vender_User.objects.filter(user_id = user.id).exists():
-    else:
-        vender_id = request.POST['v_id']
-        designer_id = request.POST['d_id']
+    
+    vender_id = request.POST['v_id']
+    designer_id = request.POST['d_id']
+    
+
 
     data_tag = int(request.POST['data_kind'])
     type_tag = request.POST['type_kind']
@@ -114,10 +106,12 @@ def sort_list(request):
     design_list = Goods.objects.filter(designer_id = designer_id, is_active = 1)
     if type_tag != u'全部':
         design_list = design_list.filter(tags = type_tag)
+    '''
     if (Test_user):
-        now_user = 'D'
-    else:
-        now_user = 'V'
+                    now_user = 'D'
+                else:
+                    now_user = 'V'
+    '''
     if data_tag == 2:
         design_list = design_list.order_by('download_count').reverse()
     if data_tag == 3:
@@ -128,11 +122,11 @@ def sort_list(request):
     for good in design_list:
         is_collect = False
         _good = {}
-        if not Test_user and Vender_Goods.objects.filter(goods_id = good.id, vender_id = vender_id):
+        if Test_user and Vender_Goods.objects.filter(goods_id = good.id, vender_id = vender_id):
             is_collect = True
         _good = {'goods_name': good.goods_name, 'id': good.id, 'download_count': good.download_count,
          'collect_count': good.collected_count, 'goods_price': good.goods_price, 'is_collect': is_collect,
-         'preview_1': server_website.file_server_path + good.preview_1, 'now_user': now_user}
+         'preview_1': server_website.file_server_path + good.preview_1, 'now_user': 'V'}
         return_list.append(_good)
     conf = {'all_list': return_list
             }
@@ -408,7 +402,7 @@ def cancel_focus(request):
 
 @login_required
 def add_collect(request):
-    #pdb.set_trace()
+    user = request.user
     g_id = request.POST['g_id']
     v_id = request.POST['v_id']
 
