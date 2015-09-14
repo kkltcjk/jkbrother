@@ -366,7 +366,7 @@ def show_3d(request):
     if server_website.is_local_server:
         url_path = url_path.split('/')[-1]
         url_path = server_website.stl_local + url_path
-    if  ip_address.in_test_server:
+    if  not ip_address.in_test_server():
         url_path = url_path.split('/')[-1]
         url_path = server_website.stl_3dlove + url_path
     print url_path
