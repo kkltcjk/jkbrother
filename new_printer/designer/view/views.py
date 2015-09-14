@@ -124,7 +124,12 @@ def sort_list(request):
          'collect_count': good.collected_count, 'goods_price': good.goods_price, 'is_collect': is_collect,
          'preview_1': server_website.file_server_path + good.preview_1, 'now_user': 'V'}
         return_list.append(_good)
-    conf = {'all_list': return_list
+
+    all_len = len(return_list)
+    total_pages = all_len/(website.all_one)
+    if all_len%(website.all_one)!=0:
+        total_pages += 1
+    conf = {'all_list': return_list, 'total_pages': total_pages
             }
     return HttpResponse(json.dumps(conf))
 
@@ -363,7 +368,6 @@ def show_3d(request):
     conf = { 'url_path': url_path}
     return HttpResponse(json.dumps(conf))
 
-@login_required
 def add_focus(request):
     d_id = request.POST['d_id']
     v_id = request.POST['v_id']
@@ -380,7 +384,6 @@ def add_focus(request):
 
     return HttpResponse(json.dumps(conf))
 
-@login_required
 def cancel_focus(request):
     d_id = request.POST['d_id']
     v_id = request.POST['v_id']
@@ -396,7 +399,6 @@ def cancel_focus(request):
         conf = {'state':'failed',}
     return HttpResponse(json.dumps(conf))
 
-@login_required
 def add_collect(request):
     user = request.user
     g_id = request.POST['g_id']
@@ -411,7 +413,6 @@ def add_collect(request):
     return HttpResponse(json.dumps("success"))
 
 
-@login_required
 def cancel_collect(request):
     g_id = request.POST['g_id']
     v_id = request.POST['v_id']
