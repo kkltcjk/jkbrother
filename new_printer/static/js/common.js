@@ -44,7 +44,7 @@
 			winWidth = 800,
 			winTop = (screenHeight-587)/2-100,
 			winLeft = (screenWidth-800)/2;
-		console.log('screen:'+screenHeight+'/'+screenWidth);
+
 		window.open ('/shop/chat_customer_service_win','chatToService','height='+winHeight+',width='+winWidth+',top='+winTop+',left='+winLeft+',toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
 	});
 
