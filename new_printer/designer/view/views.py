@@ -41,18 +41,15 @@ def my_personal(request):
     now_user = ''
     vender_id = 0
     designer_id = request.GET['designer_id']
+    designer = Designer_User.objects.get(id = designer_id)
+    designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
+    designer.img = str(server_website.file_server_path) + str(designer.img)
     if Vender_User.objects.filter(user_id = user.id).exists():
         now_user = 'V'
         vender_id = Vender_User.objects.get(user_id = user.id).id
-        designer = Designer_User.objects.get(id = designer_id)
-        designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
-        designer.img = str(server_website.file_server_path) + str(designer.img)
         if Vender_Designer.objects.filter(designer_id = designer.id, vender_id = vender_id):
             is_focus = True
-    else:
-        designer = Designer_User.objects.get(id = designer_id)
-        designer_marked = Vender_Designer.objects.filter(designer_id = designer.id).count()
-        designer.img = str(server_website.file_server_path) + str(designer.img)
+        
     design_list = Goods.objects.filter(designer_id = designer.id, is_active = 1)
     return_list = []
     for good in design_list:
@@ -73,12 +70,12 @@ def my_personal(request):
         total_pages += 1
     if now_user == 'V':
         conf = {'other_goods_list': return_list, 'designer_img': designer.img, 'designer_name': designer.designername,
-            'marked': designer_marked, 'now_user': "V", 'designer_id': designer.id,
+            'marked': designer_marked, 'now_user': "V", 'designer_id': designer.id, 'total_pages':total_pages,
             'is_focus': is_focus, 'vender_id': vender_id
     		  }
     else:
         conf = {'other_goods_list': return_list, 'designer_img': designer.img, 'designer_name': designer.designername,
-            'marked': designer_marked, 'now_user': 'V', 'designer_id': designer.id,
+            'marked': designer_marked, 'now_user': 'V', 'designer_id': designer.id, 'total_pages':total_pages,
             'is_focus': is_focus
               }
     return render(request, website.my_personal, conf)
