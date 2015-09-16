@@ -404,20 +404,29 @@ def add_collect(request):
     g_id = request.POST['g_id']
     v_id = request.POST['v_id']
 
-    this_good = Vender_Goods.objects.filter(goods_id = g_id, vender_id = v_id)
-    if  this_good:
-        now_collect = this_good.update(is_collected = True)
-    else:
-        new = Vender_Goods.objects.create(goods_id = g_id, vender_id = v_id, is_collected = True,
+    try:
+        this_good = Vender_Goods.objects.filter(goods_id = g_id, vender_id = v_id)
+        if  this_good:
+            now_collect = this_good.update(is_collected = True)
+        else:
+            new = Vender_Goods.objects.create(goods_id = g_id, vender_id = v_id, is_collected = True,
                 collected_time = datetime.now())
-    return HttpResponse(json.dumps("success"))
+        conf = {'state':'success',}
+    except:
+        conf = {"state":"failed"}
+
+    return HttpResponse(json.dumps(conf))
 
 
 def cancel_collect(request):
     g_id = request.POST['g_id']
     v_id = request.POST['v_id']
-    cancel_collect = Vender_Goods.objects.filter(goods_id = g_id, vender_id = v_id).delete()
-    return HttpResponse(json.dumps("success"))
+    try:
+        cancel_collect = Vender_Goods.objects.filter(goods_id = g_id, vender_id = v_id).delete()
+        conf = {'state':'success',}
+    except:
+        conf = {"state":"failed"}
+    return HttpResponse(json.dumps(conf))
 
 @login_required
 def add_alipay(request):
