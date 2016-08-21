@@ -25,6 +25,7 @@ if in_deploy_server:
     server = DEPLOY_SERVER_ADDRESS
 else:
     server = TEST_SERVER_ADDRESS
+print server
 
 local_server = socket.gethostbyname_ex(socket.gethostname())
 if local_server[0] == 'renjie-B85M-D3H':

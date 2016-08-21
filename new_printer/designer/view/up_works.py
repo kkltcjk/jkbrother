@@ -185,13 +185,14 @@ def edit_submit(request):
     #未审核页面，点击处理并提交 的处理表单；同时也是 未通过，点击重生申请发布的 处理表单
     '''
     file_id = request.POST['modify_id']
+    print file_id
     count = 1
     p_url = []
     price = float(request.POST['stl_price'])
     previews = request.FILES
     describe = request.POST['stl_describe']
     name = request.POST['stl_name']
-    
+
     pub_type = int(request.POST['push_type'])
     if pub_type == 3:
         good = Goods.objects.get(id = file_id)

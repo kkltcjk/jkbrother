@@ -88,7 +88,7 @@ class Goods_Upload(models.Model):
     not_passed = models.CharField(max_length=255,null=True)
     #restdate
     restdate = models.DateTimeField(auto_now_add=True,null=True)
-    type = models.CharField(max_length=25, default='stl', blank=True) 
+    type = models.CharField(max_length=25, default='stl', blank=True)
 
 class Goods(models.Model):
     '''
@@ -189,7 +189,7 @@ class Bills(models.Model):
     #买家
     vender = models.ForeignKey(Vender_User)
     #来自哪个页面
-    where = models.CharField(max_length=10, default=None)
+    page = models.CharField(max_length=10, default=None)
     #订单生成日期
     bill_time = models.DateTimeField(auto_now_add=True)
     #

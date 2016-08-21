@@ -27,7 +27,7 @@ SECRET_KEY = 's!-u9ym5-^m)sf-3ecaw3o2u7%vd5ln_@hn^qu0vd(8^e3d1e9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if not in_test_server:
-    DEBUG = False 
+    DEBUG = True
 else:
     DEBUG = True
 
@@ -93,28 +93,43 @@ WSGI_APPLICATION = 'new_printer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-if not in_test_server:
-    DATABASES = {
+# if not in_test_server:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'jkbrother',
+#             'USER': 'root',
+#             'PASSWORD': 'passw0rd',
+#             'HOST': '120.26.38.125',
+#             'PORT': '3306',
+#             }
+#         }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'jkbrother',
+#             'USER': 'kklt',
+#             'HOST': '115.29.103.1',
+#             'PASSWORD': 'password',
+#             'PORT': '3306',
+#             }
+#         }
+
+DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'jkbrother',
-            'USER': 'root',
-            'PASSWORD': 'passw0rd',
-            'HOST': '120.26.38.125',
-            'PORT': '3306',
-            }
-        }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'jkbrother',
-            'USER': 'root',
-            'HOST': '192.168.1.101',
-            'PASSWORD': '1',
-            'PORT': '3306',
-            }
-        }
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                }
+        # 'default': {
+        #     'ENGINE': 'django.db.backends.mysql',
+        #     'NAME': 'bill',
+        #     'USER': 'kklt',
+        #     'PASSWORD': 'password',
+        #     'HOST': '115.29.103.1',
+        #     'PORT': '3306',
+        #     }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
